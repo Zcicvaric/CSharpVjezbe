@@ -9,17 +9,18 @@ namespace Zad3
         {
             public string brojRacuna;
             public float iznosNaRacunu;
-            public string vrstaRacuna;
+            public VrsteRacuna vrstaRacuna;
         }
+
+       
 
         static void Main(string[] args)
         {
-            string[] vrsteRacuna = { "Stednja", "Tekuci racun", "Ziro racun" };
-
             BankAccount[] bankAccounts = new BankAccount[5];
             int numberOfAccounts = 0;
+            
 
-            while(true)
+            while (true)
             {
                 Console.WriteLine("Upisite 1 za unos novog racuna, 2 za ispis svih racuna i Exit za kraj rada");
                 string userInput = Console.ReadLine();
@@ -34,14 +35,14 @@ namespace Zad3
                     bankAccounts[numberOfAccounts].iznosNaRacunu = float.Parse(amountInput, CultureInfo.InvariantCulture);
 
                     Console.WriteLine("Unesite vrstu racuna:");
-                    Console.WriteLine("(0 za stednju, 1 za tekuci racun i 2 za ziro racun)");
-                    int accountTypeNumber;
                     string accountTypeInput = Console.ReadLine();
 
-
-                    int.TryParse(accountTypeInput, out accountTypeNumber);
-                    bankAccounts[numberOfAccounts].vrstaRacuna = vrsteRacuna[accountTypeNumber];
-
+                    if (accountTypeInput.Equals("Stednja"))
+                        bankAccounts[numberOfAccounts].vrstaRacuna = VrsteRacuna.Stednja;
+                    else if (accountTypeInput.Equals("Tekuci"))
+                        bankAccounts[numberOfAccounts].vrstaRacuna = VrsteRacuna.Tekuci;
+                    else if (accountTypeInput.Equals("Ziro"))
+                        bankAccounts[numberOfAccounts].vrstaRacuna = VrsteRacuna.Ziro;
                     numberOfAccounts++;
                 }
 
@@ -64,10 +65,13 @@ namespace Zad3
                     Console.WriteLine("Neispravan unos!");
                 }
         }
-
             
-            
-            
+        }
+        public enum VrsteRacuna
+        {
+            Stednja = 0,
+            Tekuci = 1,
+            Ziro = 2
         }
     }
 }
