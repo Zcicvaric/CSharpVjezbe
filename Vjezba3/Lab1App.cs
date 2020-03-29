@@ -21,9 +21,9 @@ namespace Labs
 			doMainMenu();
 		}
 
-		private static void Dm_CircleAdded(string args)
+		private static void Dm_CircleAdded(string message)
 		{
-			Console.WriteLine(args);
+			Console.WriteLine(message);
 		}
 
 		private static void printMainMenu()
@@ -98,16 +98,8 @@ namespace Labs
 					{
 						double r=System.Convert.ToDouble(input);
 						Circle myCircle=new Circle(r);
-
-						DataModel.OnCircleAdded(myCircle);
-
-						double newCirclexPos = myCircle.getXPos();
-						double newCircleyPos = myCircle.getYPos();
-						string message = "New circle xPos: " + newCirclexPos.ToString() + " yPos: "  + newCircleyPos.ToString();
-
-						//Dm_CircleAdded(message);
-						
 						DataModel.getAllElementsList().Add(myCircle);
+						DataModel.OnCircleAdded(myCircle);
 						Console.WriteLine("New circle inserted!");
 						Console.Write("Do you want to insert one more circle? (y/n)");
 
