@@ -14,8 +14,8 @@ namespace Labs
 		[STAThread]
 		static void Main(string[] args)
 		{
-			DataModel dm = new DataModel();//publisher
-			DataModel.CircleAdded += Dm_CircleAdded;//added subscriber list
+			DataModel dm = new DataModel();
+			DataModel.CircleAdded += Dm_CircleAdded;
 			Console.WriteLine("Program started");
 			Console.WriteLine();
 			doMainMenu();
@@ -98,8 +98,8 @@ namespace Labs
 					{
 						double r=System.Convert.ToDouble(input);
 						Circle myCircle=new Circle(r);
-						DataModel.getAllElementsList().Add(myCircle);
-						DataModel.OnCircleAdded(myCircle);
+						DataModel.addNewElement(myCircle);
+						//DataModel.OnCircleAdded(myCircle);
 						Console.WriteLine("New circle inserted!");
 						Console.Write("Do you want to insert one more circle? (y/n)");
 

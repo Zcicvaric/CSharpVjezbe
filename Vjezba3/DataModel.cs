@@ -15,6 +15,7 @@ namespace Labs
 			ALL_ELEMENTS=new ArrayList();
 
 		}
+		
 
 		public static double getNewXPos()
 		{
@@ -75,20 +76,16 @@ namespace Labs
 		public delegate void CircleAddedHandler(String args);
 		public static event CircleAddedHandler CircleAdded;
 
-		public static void PublishCircleAdded(Shape newCircle)
+		public static void addNewElement(Shape shapeToBeAdded)
 		{
-			string message = "x: " + newCircle.getXPos().ToString() + " y: " + newCircle.getYPos().ToString();
-			
-			CircleAdded(message);
+			if (shapeToBeAdded is Circle)
+			{
+				string message = "x: " + shapeToBeAdded.getXPos().ToString() + " y: " + shapeToBeAdded.getYPos().ToString();
+
+				CircleAdded(message);
+			}
+			ALL_ELEMENTS.Add(shapeToBeAdded);
 		}
 
-		public static void OnCircleAdded(Shape shape)
-		{
-			if (shape is Circle)
-			{
-				PublishCircleAdded(shape);
-			}
-			ALL_ELEMENTS.Add(shape);
-		}
 	}
 }
