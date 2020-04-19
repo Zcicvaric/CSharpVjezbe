@@ -197,12 +197,15 @@ namespace Labs
                 if (Double.Parse(textBox1.Text) > 0)
                 {
                     okButton.Enabled = true;
+                    return;
                 }
+                
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+            okButton.Enabled = false;
         }
 
         public int getSelectedType()

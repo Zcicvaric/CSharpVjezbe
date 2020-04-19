@@ -103,6 +103,7 @@ namespace Labs
             this.cancelButton.Size = new System.Drawing.Size(80, 30);
             this.cancelButton.TabIndex = 4;
             this.cancelButton.Text = "Cancel";
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // radioButton1
             // 
@@ -248,6 +249,11 @@ namespace Labs
 		}
 
 		private void AddShapeForm_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void cancelButton_Click(object sender, EventArgs e)
 		{
 
 		}
