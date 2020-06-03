@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vjezba6
+namespace Vjezba_6
 {
     public class Person
     {
@@ -13,7 +13,8 @@ namespace Vjezba6
         public String city { get; set; }
         public int age { get; set; }
 
-        public Person() {
+        public Person()
+        {
 
         }
         public Person(string name, string lastName, string city, int age)

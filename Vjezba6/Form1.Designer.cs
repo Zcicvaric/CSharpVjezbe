@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace Vjezba6
+﻿namespace Vjezba_6
 {
     partial class Form1
     {
@@ -35,7 +33,7 @@ namespace Vjezba6
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editPersonDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.newPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
@@ -49,10 +47,10 @@ namespace Vjezba6
             this.lastName});
             this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(-1, 32);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4);
+            this.listView1.Location = new System.Drawing.Point(13, 37);
+            this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1068, 551);
+            this.listView1.Size = new System.Drawing.Size(775, 401);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -71,16 +69,16 @@ namespace Vjezba6
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editPersonDataToolStripMenuItem});
+            this.viewPersonToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(186, 28);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(158, 28);
             // 
-            // editPersonDataToolStripMenuItem
+            // viewPersonToolStripMenuItem
             // 
-            this.editPersonDataToolStripMenuItem.Name = "editPersonDataToolStripMenuItem";
-            this.editPersonDataToolStripMenuItem.Size = new System.Drawing.Size(185, 24);
-            this.editPersonDataToolStripMenuItem.Text = "Edit Person data";
-            this.editPersonDataToolStripMenuItem.Click += new System.EventHandler(this.editPersonDataToolStripMenuItem_Click);
+            this.viewPersonToolStripMenuItem.Name = "viewPersonToolStripMenuItem";
+            this.viewPersonToolStripMenuItem.Size = new System.Drawing.Size(157, 24);
+            this.viewPersonToolStripMenuItem.Text = "View Person";
+            this.viewPersonToolStripMenuItem.Click += new System.EventHandler(this.viewPersonToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -89,8 +87,8 @@ namespace Vjezba6
             this.newPersonToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1067, 28);
-            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // newPersonToolStripMenuItem
@@ -104,14 +102,12 @@ namespace Vjezba6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.menuStrip1);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.listView1);
+            this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -123,12 +119,12 @@ namespace Vjezba6
         #endregion
 
         private System.Windows.Forms.ListView listView1;
-        private ColumnHeader name;
-        private ColumnHeader lastName;
-        private ContextMenuStrip contextMenuStrip1;
-        private ToolStripMenuItem editPersonDataToolStripMenuItem;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem newPersonToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader name;
+        private System.Windows.Forms.ColumnHeader lastName;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem newPersonToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem viewPersonToolStripMenuItem;
     }
 }
 

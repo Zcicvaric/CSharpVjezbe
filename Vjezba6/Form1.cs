@@ -8,79 +8,51 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Vjezba6
+namespace Vjezba_6
 {
     public partial class Form1 : Form
     {
-        List<Person> persons = new List<Person>();
-
         public Form1()
-        { 
+        {
             InitializeComponent();
         }
+
         
-        
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-        }
-
-        private void editPersonDataToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AddPersonForm addPersonForm = new AddPersonForm((Person)listView1.SelectedItems[0].Tag);
-            addPersonForm.ShowDialog(this);
-
-            if (addPersonForm.DialogResult == DialogResult.OK)
-            {
-                var newPerson = addPersonForm.getNewPerson();
-                listView1.Items.Clear();
-                foreach (var person in persons)
-                {
-                    ListViewItem item = new ListViewItem();
-                    item.Text = person.name;
-                    item.Tag = person;
-                    item.SubItems.Add(person.lastName);
-                    listView1.Items.Add(item);
-                }
-                addPersonForm.Dispose();
-            }
-            else
-            {
-                addPersonForm.Dispose();
-            }
-        }
-
         private void newPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddPersonForm addPersonForm = new AddPersonForm();
-            addPersonForm.ShowDialog(this);
+            PersonForm personForm = new PersonForm();
+            personForm.ShowDialog(this);
 
-            if (addPersonForm.DialogResult == DialogResult.OK)
+            if(personForm.DialogResult == DialogResult.OK)
             {
-                Person newPerson = addPersonForm.getNewPerson();
-                persons.Add(newPerson);
-                listView1.Items.Clear();
-                foreach (var person in persons)
-                {
-                    ListViewItem item = new ListViewItem();
-                    item.Text = person.name;
-                    item.Tag = person;
-                    item.SubItems.Add(person.lastName);
-                    listView1.Items.Add(item);
-                }
-                addPersonForm.Dispose();
-            }
-            else
-            {
-                addPersonForm.Dispose();
+                Person person = personForm.getPerson();
+
+                String[] row = { person.name, person.lastName };
+                ListViewItem item = new ListViewItem(row);
+                item.Tag = person; 
+
+                listView1.Items.Add(item);
+
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void viewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Person person = (Person) listView1.SelectedItems[0].Tag;
+            PersonForm personForm = new PersonForm(person);
+            personForm.ShowDialog(this);
+
+            if(personForm.DialogResult == DialogResult.OK)
+            {
+                person = personForm.getPerson();
+                listView1.Items.Remove(listView1.SelectedItems[0]);
+
+                String[] row = { person.name, person.lastName };
+                ListViewItem item = new ListViewItem(row);
+                item.Tag = person;
+
+                listView1.Items.Add(item);
+            }
 
         }
     }
